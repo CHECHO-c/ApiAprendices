@@ -127,5 +127,28 @@ ficha.put("/ficha/editarFicha/:id", async (request, response) => {
     }
 });
 
+ficha.delete("/ficha/eliminarFicha/:id", async (request, response) => {
+    try {
+        let id = request.params.id
+    
+        let consulta = "DELETE FROM ficha WHERE id=?";
+        let [resultado] = await conexion.query(consulta, [id]);
+
+        response.send({ resultado });
+        response.send({
+            estado: "ok",
+            data:resultado,
+        })
+        
+    }
+    catch (error) {
+        response.status(500).send({
+            estado: "Error",
+            data: error.message
+        })
+    }
+
+
+});
 
 export default ficha;
