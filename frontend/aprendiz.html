@@ -6,26 +6,72 @@
     <title>Aprendiz</title>
 </head>
 <body>
-    <button class="btn btn-success mt-2 ">Atras</button>
+    <button class="btn btn-success mt-2 "><a href="index.html">Volver</a></button>
     
 
 
-    <div class="container mt-4 p-3 bg-body rounded shadow">
+    <div id="contenedorPrincipal" class="container mt-4 p-3 bg-body rounded shadow">
         <table class="table">
+            <button id="btnFormAprendiz" class="btn btn-success">Crear aprendiz</button>
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Correo</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+
+
+
     
     </tr>
   </thead>
   <tbody id="tablaAprendizes">
+   
   </tbody>
 </table>
         
     </div>
+
+    <div class="modal fade" id="frmAprendiz" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                    <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required >
+            </div>
+
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" required>
+            </div>
+
+             <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correo" required>
+            </div>
+
+            
+           
+            <button type="submit" id="btnCrearAprendiz" class="btn btn-success">Guardar</button>
+            <button type="button" id="btnCerrarModal" class="btn btn-secondary">Cancelar</button>
+
+           
+            </form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

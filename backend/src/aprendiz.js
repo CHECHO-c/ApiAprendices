@@ -67,6 +67,7 @@ aprendiz.post("/aprendiz/agregarAprendiz", async (req, res) => {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       correo: req.body.correo,
+      estado: 1
     }
 
     let consulta = "INSERT INTO aprendiz SET  ?";
