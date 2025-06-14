@@ -3,12 +3,14 @@ import express from "express";
 import "dotenv/config";
 import aprendiz from "./src/aprendiz.js";
 import ficha from "./src/fichas.js";
+import cors from "cors"
 //maluma baby
 
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use("/", aprendiz);
 app.use("/",ficha);
 
