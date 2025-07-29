@@ -8,12 +8,13 @@ const frmAprendiz = document.querySelector("#frmAprendiz");
 const inputNombre = document.querySelector("#nombre");
 const inputApellido = document.querySelector("#apellido");
 const inputCorreo = document.querySelector("#correo");
+const inputId = document.querySelector("#idAprendiz");
 
 var opcion = ""
 
 document.addEventListener("DOMContentLoaded", cargarAprendizes);
 
-function llenarTabla(datos) {
+function llenarTabla(datos) {   
     const aprendizes = datos.resultado;
   
     if (aprendizes.length < 1){
@@ -37,6 +38,7 @@ function llenarTabla(datos) {
         let btnCrear = document.querySelector("#btnFormAprendiz").addEventListener('click', () => {
 
             modalAprendiz.toggle();
+            inputId.value = "";
             inputApellido.value = "";
             inputNombre.value="";
             inputCorreo.value = "";
@@ -59,7 +61,7 @@ function llenarTabla(datos) {
 
             tablaAprendiz.innerHTML = "";
         aprendizes.forEach(aprendiz => {
-        if (aprendiz.estado==1) {
+        
             
 
 
@@ -104,7 +106,7 @@ function llenarTabla(datos) {
 
 
             tablaAprendiz.appendChild(fila);
-        }
+        
         
 
 
@@ -134,6 +136,7 @@ function cargarAprendizes() {
 
 let btnCrear = document.querySelector("#btnFormAprendiz").addEventListener('click', () => {
     modalAprendiz.toggle();
+    inputId.value = "";
     inputApellido.value = "";
     inputNombre.value="";
     inputCorreo.value = "";
@@ -148,6 +151,7 @@ frmAprendiz.addEventListener('submit', (e) => {
     if (opcion == "crear") { 
         
         let datosAprendiz = {
+             "id": inputId.value,
              "nombre" :inputNombre.value,
              "apellido" : inputApellido.value,
              "correo" : inputCorreo.value
@@ -170,7 +174,33 @@ frmAprendiz.addEventListener('submit', (e) => {
             title: "Bien hecho!",
             text: "Aprendiz insertado con exito!",
             icon: "success"
-        });
+            });
+                    
+                    
+                    
+                    let tablaAprendiz = document.querySelector("#tablaAprendizes");
+                            
+                    let tr = document.createElement("tr");
+
+                    let idTd = document.createElement("td")
+                    let nombreTd = document.createElement("td")
+                    let apeliidoTd = document.createElement("td")
+                    let correoTd = document.createElement("td")
+                    let editarTd = document.createElement("td")
+                    let eliminarTd = document.createElement("td")
+
+                    idt
+
+                    let botonEditar = document.createElement("button");
+                    botonEditar.classList.add("btn", "btn-warning", "shadow", "m-1");
+
+                    let botonEliminar = document.createElement("button");
+                    botonEliminar.classList.add("btn", "btn-danger", "m-1","shadow");
+
+                    botonEditar.innerText = 'Editar';
+                    botonEliminar.innerText = 'Eliminar';
+
+                    
         }
             })
 

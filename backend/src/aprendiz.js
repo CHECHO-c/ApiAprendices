@@ -64,6 +64,7 @@ aprendiz.get("/aprendiz/buscarId/:id", async (req, res) => {
 aprendiz.post("/aprendiz/agregarAprendiz", async (req, res) => {
   try {
     let datosUsuario = {
+      id: req.body.id,
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       correo: req.body.correo,
@@ -74,7 +75,7 @@ aprendiz.post("/aprendiz/agregarAprendiz", async (req, res) => {
 
     let [resultado] = await connection.query(consulta, [datosUsuario]);
 
-     res.send({ resultado });
+     
     res.send({
       estado: "ok",
       data: resultado,
